@@ -1,8 +1,28 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-a {
-  color: #00B7FF;
+#fotos {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+}
+#foto {
+  width: 40%;
+  height: 40vh;
+  margin: 2rem;
+  padding: 1rem;
+}
+
+#foto #image {
+  width: 30%;
+}
+
+#foto #image img {
+  width: 100%;
 }
