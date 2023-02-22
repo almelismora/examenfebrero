@@ -7,10 +7,21 @@
   </head>
   <body>
     <%- include('./partials/nav.ejs') %>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <section class="d-flex flex-column justify-content-around align-items-center mt-5">
+      
+      <h1>Welcome to</h1>
+  
+      
+      <img src="/images/logo.png" alt="">
 
-    <a href="/fotos/add" class="btn btn-dark">Add foto</a>
+      <div class="d-flex flex-row justify-content-around align-items-center">
+        <p class="w-25">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla quia voluptate asperiores, est doloremque rerum sint dolor voluptatem quos iusto et perferendis facere ratione maxime quae repudiandae in, laborum laboriosam?</p>
+        <a href="/fotos/add" class="btn btn-dark">Add foto</a>
+      </div>
+  
+
+  
+    </section>
 
     <%- include('./partials/footer.ejs') %>
   </body>
