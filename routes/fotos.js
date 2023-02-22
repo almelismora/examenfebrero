@@ -38,7 +38,6 @@ router.post('/add', async (req, res) => {
 
 // EDITAR foto
 
-// --- update 
 router.get('/edit/:id', async (req, res) => {
     const { id } = req.params
     const [ foto ] = await pool.promise().query('SELECT * FROM fotos WHERE id = ?', [ id ])
@@ -64,7 +63,6 @@ router.post('/edit/:id', async (req, res) => {
 
 // DELETE foto
 
-// --- delete
 router.get('/delete/:id', async (req, res) => {
     const { id } = req.params
 
@@ -72,6 +70,47 @@ router.get('/delete/:id', async (req, res) => {
     console.log('foto has been removed successfully')
     res.redirect('/fotos')
 
+})
+
+
+// MAS VOTADAS
+
+router.get('/masvotadas', async (req, res) => {
+
+  const [rows] = await pool.promise().query('SELECT * FROM fotos ORDER BY likes DESC')
+  console.log(rows)
+
+  res.render('masvotadas', {rows:rows})
+  //res.send('fotos mas votadas!!!')
+})
+
+router.get('/addvoto/:id', async (req, res) => {
+  const { id } = req.params
+
+  await pool.promise().query('UPDATE fotos SET likes = likes+1 WHERE id = ?', [id])
+  console.log(' + 1 like !!! ')
+
+  res.redirect('/fotos')
+})
+
+// MENOS VOTADAS
+
+router.get('/menosvotadas', async (req, res) => {
+
+  const [rows] = await pool.promise().query('SELECT * FROM fotos ORDER BY dislikes DESC')
+  console.log(rows)
+
+  res.render('menosvotadas', {rows:rows})
+  //res.send('fotos menos votadas!!!')
+})
+
+router.get('/removevoto/:id', async (req, res) => {
+  const { id } = req.params
+
+  await pool.promise().query('UPDATE fotos SET dislikes=dislikes+1 WHERE id = ?', [id])
+  console.log(' + 1 dislike !!! ')
+
+  res.redirect('/fotos')
 })
 
 

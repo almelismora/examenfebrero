@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <%- include('./partials/header.ejs') %>
+    <title>Fotos Mas Votadas</title>
+</head>
+<body>
+    <%- include('./partials/nav.ejs') %>
+
+    <div id="fotos">
+        <% for( let index = 0; index < rows.length; index++ ) { %>
+            <div id="foto">
+                <h2><%= rows[index].title %></h2>
+    
+                <div id="image">
+                    <img src="<%= rows[index].url %>">
+                </div>
+                
+                <p><%= rows[index].description %></p>
+                <span><%= rows[index].date %></span>
+
+
+                <div id="num" class="font-weight-bold">
+                    <span><%= rows[index].likes %> likes</span>
+                    <span><%= rows[index].dislikes %> dislikes</span>
+                </div>
+                
+                
+
+            </div>
+        <% } %>
+        
+    <%- include('./partials/footer.ejs') %>
+</body>
+</html>

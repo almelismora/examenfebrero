@@ -24,11 +24,23 @@
                     
                     <p><%= rows[index].description %></p>
                     <span><%= rows[index].date %></span>
+                    
+                    
+                    <div class="botones d-flex justify-content-between my-2">
 
-                    <div id="btn">
-                        <a href="/fotos/edit/<%= rows[index].id %>" class="btn btn-primary">Editar</a>
-                        <a href="/fotos/delete/<%= rows[index].id %>" class="btn btn-primary">Eliminar</a>
+                        <div id="votos">
+                            <a href="/fotos/addvoto/<%= rows[index].id %>" class="btn btn-success">Like!</a>
+                            <a href="/fotos/removevoto/<%= rows[index].id %>" class="btn btn-danger">Dislike!</a>
+                        </div>
+    
+                        
+                        <div id="btn">
+                            <a href="/fotos/edit/<%= rows[index].id %>" class="btn btn-primary">Editar</a>
+                            <a href="/fotos/delete/<%= rows[index].id %>" class="btn btn-primary">Eliminar</a>
+                        </div>
+
                     </div>
+                    
 
                 </div>
             <% } %>
