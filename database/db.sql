@@ -1,0 +1,17 @@
+DROP DATABASE IF EXISTS db_examen;
+CREATE DATABASE db_examen;
+USE db_examen;
+
+-- CREATE TABLE users (
+--     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+--     name VARCHAR(100) NOT NULL,
+
+-- )
+
+CREATE TABLE fotos (
+    url VARCHAR(255) NOT NULL, 
+    title VARCHAR(100),
+    description VARCHAR(300), 
+    date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+)
+
